@@ -1,0 +1,11 @@
+<html>
+    <h1>signin</h1>
+    <body>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+        Enter the name:-<input type="text" name="name"><br>
+        Enter the password:-<input type="password" name="password"><br>
+        <button type="submit">submit</button>
+        </form>
+    </body>
+</html>
