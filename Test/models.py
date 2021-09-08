@@ -1,6 +1,7 @@
 from django.core.files import storage
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class User(AbstractUser):
@@ -26,7 +27,7 @@ class Addmovies(models.Model):
         ('Anime','Anime')
     )
     movies_name=models.CharField(max_length=25)
-    movies_image=models.ImageField(null=True,blank=True,upload_to='UserImage')
+    movies_image=CloudinaryField('uploadimage')
     category_types=models.CharField(choices=cat_types,max_length=25)
     movies_category=models.ForeignKey(Category,related_name='Category',on_delete=models.CASCADE)
     movies_discription=models.TextField()
