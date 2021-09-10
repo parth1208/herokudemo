@@ -11,7 +11,7 @@ def login(request):
 
 def index(request):
     obj=Addmovies.objects.all()
-    return render(request,'index.html',{'ob':obj})
+    return render(request,'index.html',{'obj':obj})
 
 def detail(request,pk):
     obj= Addmovies.objects.filter(id=pk)
