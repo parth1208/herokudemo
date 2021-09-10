@@ -57,7 +57,7 @@
                             {% with ia.link|split:" " as tags %}
                             {% for tag in tags %}
                             <center>
-                                <p class="mb-4" style="padding-right: 60px;"><a href="{{tag}}" target="_parent" rel="sponsored"> Episode {{ forloop.counter }}  {{tag}}</a></p>
+                                <p class="mb-4" style="padding-right: 60px;"><a href="{{tag}}" target="_blank" rel="sponsored"> Episode {{ forloop.counter }} </a></p>
                             </center>
                             {% endfor %}
                             {% endwith %}
