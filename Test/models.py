@@ -26,15 +26,14 @@ class Addmovies(models.Model):
         ('webseries','webseries'),
         ('Anime','Anime')
     )
-    movies_name=models.CharField(max_length=25)
+    movies_name=models.CharField(max_length=200)
     movies_image=models.ImageField(null=True,blank=True,upload_to='UserImage')
     category_types=models.CharField(choices=cat_types,max_length=25)
     movies_category=models.ForeignKey(Category,related_name='Category',on_delete=models.CASCADE)
     movies_rating=models.CharField(max_length=25)
     movies_audio=models.CharField(max_length=25)
-    movies_intro=models.TextField()
+    movies_intro=models.TextField(default='Best Movies')
     upload_date=models.DateTimeField(auto_now_add=True)
-    link=models.TextField()
 
     def __str__(self):
         s=str(self.movies_name)+' '+str(self.movies_category)
@@ -47,3 +46,13 @@ class moviescounter(models.Model):
     def __str__(self):
         s=str(self.movie_name)+'  '+str(self.Counter)
         return s
+
+class movieslink(models.Model):
+    moviesname=models.ForeignKey(Addmovies,on_delete=models.CASCADE)
+    link_title=models.TextField(default='Episode')
+    link=models.TextField(default='Link')
+
+    def __str__(self):
+        s=str(self.moviesname)+' '+str(self.link_title)
+        return s
+        
