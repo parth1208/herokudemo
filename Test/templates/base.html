@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
+    <title>Catalog-Z</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css'%}">
@@ -35,27 +35,17 @@ https://templatemo.com/tm-556-catalog-z
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="{% url 'index' %}">Photos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="#">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="#">Contact</a>
-                </li>
-            </ul>
+                {% block menu %}
+
+                {% endblock %}
             </div>
         </div>
     </nav>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
-        <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex tm-search-form" action="{% url 'search' %}" method="POST" >
+            {% csrf_token %} 
+            <input class="form-control tm-search-input" type="search" placeholder="Search" name="name" aria-label="Search" required>
             <button class="btn btn-outline-success tm-search-btn" type="submit">
                 <i class="fas fa-search"></i>
             </button>

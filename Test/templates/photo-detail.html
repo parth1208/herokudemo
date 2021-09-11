@@ -4,12 +4,12 @@
 {% load filter_tags %}
 
     <div class="container-fluid tm-container-content tm-mt-60">
+        {% for ia in obj %}
         <center>
         <div class="row mb-4">
-            <h5 class="col-12 tm-text-primary" style="font-family: 'Times New Roman', serif;"><a href="{% url 'index' %}">Home</a>/Detail</h5>
+            <h5 class="col-12 tm-text-primary" style="font-family: 'Times New Roman', serif;"><a href="{% url 'index' %}">Home</a>/ {{ ia.movies_name }}</h5>
         </div>
         </center>
-        {% for ia in obj %}
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
                 <img src="{{ ia.movies_image.url  }}" alt="Image" style="width: 950px; height: 600px;" class="img-fluid">
@@ -42,25 +42,29 @@
                                 </p>
                                 </h4>
                     <div class="text-center mb-5">
-                        <button type="button" class="btn btn-primary tm-btn-big" data-toggle="modal" data-target=".bd-example-modal-sm">
+                        <button type="button" class="btn btn-primary tm-btn-big" data-toggle="modal" data-target=".bd-example-modal-lg">
                             Download
                         </button>
                     </div>
-                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
                           <div class="modal-content">
                             <div class="modal-header-center">
                                 <center><h5 class="modal-title" id="exampleModalLabel"> Links </h5></center>
                                 <center><p>Total Views: {{ couter.Counter }}</p></center>
                               </div>
                               <div class="modal-body">
-                            {% with ia.link|split:" " as tags %}
-                            {% for tag in tags %}
+                            {% for i in links %}
+                            {% if not i.link_title == 'null' %}
                             <center>
-                                <p class="mb-4" style="padding-right: 60px;"><a href="{{tag}}" target="_blank" rel="sponsored"> Episode {{ forloop.counter }} </a></p>
+                                <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{ i.link_title }}  </a></p>
                             </center>
+                            {% else %}
+                            <center>
+                                <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{i.link}} </a></p>
+                            </center>
+                            {% endif %}
                             {% endfor %}
-                            {% endwith %}
                             </div>
                           </div>
                         </div>
@@ -75,111 +79,4 @@
                 Related Photos
             </h2>
         </div>
-        <div class="row mb-3 tm-gallery">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-01.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Hangers</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">16 Oct 2020</span>
-                    <span>12,460 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-02.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Perfumes</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Oct 2020</span>
-                    <span>11,402 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-03.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Clocks</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">8 Oct 2020</span>
-                    <span>9,906 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-04.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Plants</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">6 Oct 2020</span>
-                    <span>16,100 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-05.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Morning</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">26 Sep 2020</span>
-                    <span>16,008 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-06.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Pinky</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">22 Sep 2020</span>
-                    <span>12,860 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-07.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Bus</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Sep 2020</span>
-                    <span>10,900 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="{% static 'img/img-08.jpg' %}" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>New York</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">4 Sep 2020</span>
-                    <span>11,300 views</span>
-                </div>
-            </div>        
-        </div> <!-- row -->
-    </div> <!-- container-fluid, tm-container-content -->
 {% endblock %}
