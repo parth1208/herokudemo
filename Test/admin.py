@@ -5,9 +5,6 @@ admin.site.register(Addmovies)
 admin.site.register(Category)
 admin.site.register(movieslink)
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 admin.site.register(moviescounter)
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
