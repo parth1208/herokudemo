@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
+    <title>Catalog-Z</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css'%}">
@@ -35,32 +36,14 @@ https://templatemo.com/tm-556-catalog-z
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="{% url 'index' %}">Photos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="#">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="#">Contact</a>
-                </li>
-            </ul>
+                {% block menu %}
+
+                {% endblock %}
             </div>
         </div>
     </nav>
 
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
-        <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success tm-search-btn" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </div>
+
 
     {% block content %}
 
@@ -97,11 +80,9 @@ https://templatemo.com/tm-556-catalog-z
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                </div>
-                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
-                    Designed by <a href="#" class="tm-text-gray" rel="sponsored" target="_parent">Parth</a>
-                </div>
+                <center>
+                <p>Designed by <a href="#" class="tm-text-gray text-center" rel="sponsored" target="_parent">Parth</a></p>
+                </center>
             </div>
         </div>
     </footer>

@@ -36,7 +36,7 @@ class Addmovies(models.Model):
     upload_date=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        s=str(self.movies_name)+' '+str(self.movies_category)
+        s=str(self.movies_name)+' '+str(self.movies_category)+' '+str(self.category_types)
         return s
 
 class moviescounter(models.Model):
