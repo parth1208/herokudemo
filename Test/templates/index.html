@@ -8,14 +8,8 @@
     <li class="nav-item">
         <a class="nav-link nav-link-2" href="{% url 'content' %}">Content</a>
     </li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 </ul>
 {% endblock %}
-
-=======
-=======
->>>>>>> Stashed changes
     <li class="nav-item">
         <a class="nav-link nav-link-3" href="#">About</a>
     </li>
@@ -24,10 +18,7 @@
     </li>
 </ul>
 {% endblock %}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 {% block content %}
 {% load static %}
 
@@ -80,26 +71,13 @@
                         <img src="{{ is.movie_name.movies_image.url  }}" alt="Image" class="img-fluid" style="width: 850px; height: 300px;">
                         <figcaption class="d-flex align-items-center justify-content-center">
                             <h2>{{ is.movie_name.movies_name }}</h2>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                             <a href="{% url 'detail' pk=is.movie_name.pk %}">View more</a>
-=======
-                            <a href="{% url 'detail' pk=is.pk %}">View more</a>
->>>>>>> Stashed changes
-=======
-                            <a href="{% url 'detail' pk=is.pk %}">View more</a>
->>>>>>> Stashed changes
                         </figcaption>                    
                     </figure>
                     <div class="d-flex justify-content-between tm-text-gray">
                         <span class="tm-text-gray-light">{{ is.movie_name.upload_date }}</span>
                         <span>{{ is.movie_name.movies_category }}/{{ is.movie_name.category_types }}</span>
                     </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
                 </div>
                 {% endfor %}
             </div> <!-- row -->
@@ -111,9 +89,7 @@
                     <a href="javascript:void(0);" class="tm-paging-link">2</a>
                     <a href="javascript:void(0);" class="tm-paging-link">3</a>
                     <a href="javascript:void(0);" class="tm-paging-link">4</a>
->>>>>>> Stashed changes
                 </div>
-                {% endfor %}
             </div> <!-- row -->
     </div> <!-- container-fluid, tm-container-content -->
     {% endblock %}

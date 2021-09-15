@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 {% block menu %}
 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
     <li class="nav-item">
@@ -11,16 +9,6 @@
     </li>
 </ul>
 {% endblock %}
-=======
-
-
-
->>>>>>> Stashed changes
-=======
-
-
-
->>>>>>> Stashed changes
 {% block content %}
 {% load static %}
 {% load filter_tags %}
@@ -88,7 +76,6 @@
                               <div class="modal-body">
                             {% for i in links %}
                             {% if not i.link_title == 'null' %}
-<<<<<<< Updated upstream
                             <center>
                                 <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{ i.link_title }}  </a></p>
                             </center>
@@ -96,7 +83,6 @@
                             <center>
                                 <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{i.link}} </a></p>
                             </center>
-=======
                             <center>
                                 <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{ i.link_title }}  </a></p>
                             </center>
@@ -104,7 +90,6 @@
                             <center>
                                 <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{i.link}} </a></p>
                             </center>
->>>>>>> Stashed changes
                             {% endif %}
                             {% endfor %}
                             </div>
@@ -120,8 +105,6 @@
             <h2 class="col-12 tm-text-primary">
                 Related
             </h2>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             <div class="row tm-mb-90 tm-gallery">
                 {% for is in res %}
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -162,9 +145,5 @@
                 </div>
                 {% endfor %}
             </div> <!-- row -->
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         </div>
 {% endblock %}
