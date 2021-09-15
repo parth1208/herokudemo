@@ -54,9 +54,4 @@ class movieslink(models.Model):
 
     def __str__(self):
         s=str(self.moviesname)+' '+str(self.link_title)
-<<<<<<< Updated upstream
         return s
-        
-=======
-        return s
->>>>>>> Stashed changes
