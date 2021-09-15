@@ -1,9 +1,14 @@
 from typing import Counter
 from Test.models import Addmovies
 from django.shortcuts import render
+<<<<<<< Updated upstream
 from . models import Addmovies, Category, moviescounter, movieslink
 import random
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+=======
+from . models import Addmovies, moviescounter, movieslink
+
+>>>>>>> Stashed changes
 # Create your views here.
 
 
@@ -12,6 +17,7 @@ def login(request):
 
 def index(request):
     obj=Addmovies.objects.all().order_by('-id')[:4]
+<<<<<<< Updated upstream
     li=list(moviescounter.objects.all().order_by('Counter'))[-4:]
     link=reversed(li)
     return render(request,'index.html',{'obj':obj,'link':link})
@@ -78,6 +84,14 @@ def Webseries_page(request):
     except EmptyPage:
         post_list = paginator.page(paginator.num_pages)
     return render(request,'content_page.html',{'obj':post_list})
+=======
+    link=moviescounter.objects.all().order_by('Counter')[:4]
+    return render(request,'index.html',{'obj':obj,'link':link})
+
+def content(request):
+    obj=Addmovies.objects.all()
+    return render(request,'content.html',{'obj':obj})
+>>>>>>> Stashed changes
 
 def detail(request,pk):
     obj= Addmovies.objects.filter(id=pk)
@@ -86,6 +100,7 @@ def detail(request,pk):
         counter=moviescounter.objects.get(movie_name=pk)
         moviescounter.objects.filter(movie_name=objj).update(Counter=counter.Counter + 1)
     else:
+<<<<<<< Updated upstream
         counter=moviescounter.objects.create(movie_name=objj,Counter=0)
     links=movieslink.objects.filter(moviesname=objj)
     li=moviescounter.objects.filter(movie_name__category_types=objj.category_types).order_by('Counter')
@@ -95,16 +110,31 @@ def detail(request,pk):
     rela=[j for j in line if j != counter and j not in related]
     most_view=reversed(rela[-4:])  
     return render(request,'photo-detail.html',{'obj':obj,'couter':counter,'links':links,'res':nn,'mostview':most_view})
+=======
+        moviescounter.objects.create(movie_name=objj,Counter=0)
+    counter=moviescounter.objects.get(id=pk)
+    links=movieslink.objects.filter(moviesname=objj)
+    return render(request,'photo-detail.html',{'obj':obj,'couter':counter,'links':links})
+>>>>>>> Stashed changes
 
 def search(request):
     if request.method == "POST":
         query_name = request.POST.get('name', None)
+<<<<<<< Updated upstream
         results = Addmovies.objects.filter(movies_name__contains=query_name)
         return render(request, 'search_result.html', {'obj':results})
+=======
+        if query_name == "null":
+            return render(request, 'index.html')
+        else:
+            results = Addmovies.objects.filter(movies_name__contains=query_name)
+            return render(request, 'search_result.html', {'obj':results})
+>>>>>>> Stashed changes
     return render(request, 'search_result.html')
 
 def most(request):
     link=moviescounter.objects.all().order_by('Counter')
+<<<<<<< Updated upstream
     p = Paginator(link, 5)  
     page_number = request.GET.get('page')
     try:
@@ -116,3 +146,6 @@ def most(request):
     context = {'page_obj': page_obj,
                 }
     return render(request,'most.html',context)
+=======
+    return render(request,'most.html',{'link':link})
+>>>>>>> Stashed changes
