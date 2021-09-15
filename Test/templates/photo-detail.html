@@ -12,17 +12,6 @@
 {% block content %}
 {% load static %}
 {% load filter_tags %}
-
-<div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
-    <form class="d-flex tm-search-form" action="{% url 'search' %}" method="POST" >
-        {% csrf_token %} 
-        <input class="form-control tm-search-input" type="search" placeholder="Search" name="name" aria-label="Search" required>
-        <button class="btn btn-outline-success tm-search-btn" type="submit">
-            <i class="fas fa-search"></i>
-        </button>
-    </form>
-</div>
-
     <div class="container-fluid tm-container-content tm-mt-60">
         {% for ia in obj %}
         <center>
@@ -76,13 +65,6 @@
                               <div class="modal-body">
                             {% for i in links %}
                             {% if not i.link_title == 'null' %}
-                            <center>
-                                <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{ i.link_title }}  </a></p>
-                            </center>
-                            {% else %}
-                            <center>
-                                <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{i.link}} </a></p>
-                            </center>
                             <center>
                                 <p class="mb-4" style="padding-right: 60px;"><a href="{{i.link}}" target="_blank" rel="sponsored"> {{ i.link_title }}  </a></p>
                             </center>
