@@ -25,7 +25,7 @@
         <div class="row tm-mb-30 tm-gallery">
         	{% for ia in obj %}
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
+                <figure class="effect-ming tm-video-item" style="border-radius: 20px 20px 0px 0px;">
                     <img src="{{ ia.movies_image.url  }}" alt="Image" class="img-fluid" style="width: 850px; height: 300px;">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>{{ ia.movies_name }}</h2>
@@ -52,7 +52,7 @@
             <div class="row tm-mb-30 tm-gallery">
                 {% for is in Animes %}
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                    <figure class="effect-ming tm-video-item">
+                    <figure class="effect-ming tm-video-item" style="border-radius: 20px 20px 0px 0px;">
                         <img src="{{ is.movies_image.url  }}" alt="Image" class="img-fluid" style="width: 850px; height: 300px;">
                         <figcaption class="d-flex align-items-center justify-content-center">
                             <h2>{{ is.movies_name }}</h2>
@@ -81,7 +81,7 @@
                 <div class="row tm-mb-30 tm-gallery">
                     {% for im in movies %}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
+                        <figure class="effect-ming tm-video-item" style="border-radius: 20px 20px 0px 0px;">
                             <img src="{{ im.movies_image.url  }}" alt="Image" class="img-fluid" style="width: 850px; height: 300px;">
                             <figcaption class="d-flex align-items-center justify-content-center">
                                 <h2>{{ im.movies_name }}</h2>
@@ -108,7 +108,7 @@
                     <div class="row tm-mb-30 tm-gallery">
                         {% for iw in webseries %}
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                            <figure class="effect-ming tm-video-item">
+                            <figure class="effect-ming tm-video-item" style="border-radius: 20px 20px 0px 0px;">
                                 <img src="{{ iw.movies_image.url  }}" alt="Image" class="img-fluid" style="width: 850px; height: 300px;">
                                 <figcaption class="d-flex align-items-center justify-content-center">
                                     <h2>{{ iw.movies_name }}</h2>
